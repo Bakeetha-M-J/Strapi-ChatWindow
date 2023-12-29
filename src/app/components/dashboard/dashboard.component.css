@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+h1{
+  /* font-size: 30px; */
+  font-size: 42px;
+    line-height: 1.2;
+    font-weight: 300;
+}
+p{
+  letter-spacing: 1px;
+  line-height: 2;
+  font-size: 16px;
+  font-weight: 400;
+}
+.content {
+  display: flex;
+  margin: 170px auto 32px;
+  padding: 0 16px;
+  /* max-width: 960px; */
+  /* flex-direction: row; */
+  display: block;
+  /* align-items: center; */
+}
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 60px;
+}
+
+/* Clear floats after the columns */
+.row{
+  border-bottom: 2px solid #9a9a9a;
+}
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+img.image-right{
+  border-radius: 16px;
+  width: 500px;
+  height: 250px;
+}
+
+.btn-primary{
+  width: 33%;
+  border-radius: 30px;
+  border: inherit;
+  height: 54px;
+  font-size: 18px;
+  padding: 12px 15px;
+  background-color: #408bc0;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-primary:hover{
+  transform: scale(1.1);
+  background-color: #2ecc71;
+  color: white;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}

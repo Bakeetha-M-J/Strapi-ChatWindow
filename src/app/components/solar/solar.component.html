@@ -1,0 +1,70 @@
+<div class="content" role="main">
+  <div>
+    <app-breadcrumb></app-breadcrumb>
+  </div>
+
+  <!-- *ngFor="let page of homePageContents" -->
+  <!-- {{blog.attributes.Banner.Title}} -->
+  <!-- <div class="row" >
+    <div class="column left">
+     <div *ngIf="blog.attributes.Banner != null">
+      <h1 *ngIf="blog.attributes.Banner.Title">{{blog.attributes.Banner.Title}}</h1>
+      <p *ngIf="blog.attributes.Banner.Description">{{blog.attributes.Banner.Description}}</p>
+     </div>
+
+      <button class="btn-primary" *ngIf="blog.attributes.Banner && blog.attributes.Banner.ButtonName"
+        [routerLink]="blog.attributes.Banner.LinkHref">{{blog.attributes.Banner.ButtonName}}</button>
+    </div>
+
+    <div class="column right" *ngIf="blog.attributes.Banner && blog.attributes.Banner.Image.data.attributes.url">
+      <img [src]="blog.attributes.Banner.Image.data.attributes.url" alt="image" class="image-right">
+    </div>
+  </div> -->
+
+
+<div *ngIf="flag == true">
+    <!-- {{homePageContents.attributes.Contents[0].Contents | json}} -->
+    <div class="row" *ngFor="let page of homePageContents" >
+      <!-- {{blog.Contents}} -->
+      <div class="content-block"  *ngFor="let blog of page.Contents" >
+
+  <div class="column left" [ngClass]="blog.Image?.data?.attributes?.url ? 'column' : 'full-width'">
+    <div >
+      <h1 *ngIf="blog.Heading">{{ blog.Heading }}</h1>
+      <p *ngIf="blog.Description[0].children[0].text">{{ blog.Description[0].children[0].text }}</p>
+    </div>
+
+    <button class="btn-primary" *ngIf="blog.ButtonName"
+      [routerLink]="blog.ButtonLink">{{ blog.ButtonName }}</button>
+  </div>
+
+  <div class="column right" *ngIf="blog.Image?.data?.attributes?.url">
+    <img [src]="baseURL+blog.Image.data.attributes.url" alt="image" class="image-right">
+  </div>
+</div>
+</div>
+</div>
+
+<!-- {{homePageContents.attributes.Contents[0].Contents | json}} -->
+  <div *ngIf="flag == false">
+    <div class="row" *ngFor="let blog of homePageContents" >
+      <div class="content-block" >
+
+  <div class="column left" [ngClass]="blog.Image?.data?.attributes?.url ? 'column' : 'full-width'">
+    <div >
+      <h1 *ngIf="blog.Heading">{{ blog.Heading }}</h1>
+      <p *ngIf="blog.Description[0].children[0].text">{{ blog.Description[0].children[0].text }}</p>
+    </div>
+
+    <button class="btn-primary" *ngIf="blog.ButtonName"
+      [routerLink]="blog.ButtonLink">{{ blog.ButtonName }}</button>
+  </div>
+
+  <div class="column right" *ngIf="blog.Image?.data?.attributes?.url">
+    <img [src]="baseURL+blog.Image.data.attributes.url" alt="image" class="image-right">
+  </div>
+</div>
+</div>
+  </div>
+
+</div>

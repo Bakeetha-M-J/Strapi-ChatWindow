@@ -1,0 +1,150 @@
+:host {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 8px 0;
+}
+
+p {
+  margin: 0;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  background-image: url(src/assets/images/header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  filter: contrast(100%) brightness(110%) opacity(98%);
+  /* filter: sepia(5%); */
+  mask-mode: luminance;
+  background-color: #408bc0;
+  color: white;
+  font-weight: 600;
+}
+
+.toolbar img {
+  margin: 0 16px;
+}
+
+
+
+svg.material-icons {
+  height: 24px;
+  width: auto;
+}
+
+svg.material-icons:not(:last-child) {
+  margin-right: 8px;
+}
+
+a{
+  color: #fff;
+  text-decoration: none;
+}
+a:hover {
+  color: #2ecc71; /* #125699;*/
+  transform: scale(1.1);
+}
+
+a.active {
+  color: #cc2e2e; /* #125699;*/
+  font-weight: bold;
+  background-color: yellow;
+  text-decoration: none;
+  border-radius: 16px;
+}
+.toolbar .navbar-collapse .navbar-nav .menu-item a {
+  padding: 0.3rem 1rem;
+  font-size: 22px;
+  font-weight: 300;
+}
+.toolbar{
+  padding: 0.3rem 2.5rem;
+}
+.navbar-nav {
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.last-item-style {
+  background-color: white;
+  padding: 6px 0px 4px;
+    margin-top: -8px;
+  border-radius: 16px;
+}
+.last-item-style a{
+  color: black;
+}
+.last-item-style a:hover{
+  background-color: #125699;
+  color: #fff;
+  border-radius: 16px;
+}
+#btn-contact{
+  width: auto;
+    border-radius: 20px;
+    border: inherit;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px 15px;
+
+}
+#btn-contact:hover{
+  background-color: #125699;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+
+/* Responsive Styles */
+
+@media screen and (max-width: 1307px) {
+  .navbar-nav .static{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .toolbar {
+    width: 113%;
+  }
+}
+
+@media screen and (max-width: 835px) {
+  .navbar-nav{
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 760px) {
+  .toolbar {
+    width: 120%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+}
+
