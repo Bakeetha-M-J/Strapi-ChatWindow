@@ -48,7 +48,7 @@ export class HeaderComponent {
   getPages(){
       this.mainPageData.getHeaders().subscribe((response: any) => {
         if (response) {
-          // console.log('Received this.pages:', response);
+          console.log('Received this.pages:', response);
           this.pages = response;
           // this.blogs = response; data[0].attributes.Navbar
         }

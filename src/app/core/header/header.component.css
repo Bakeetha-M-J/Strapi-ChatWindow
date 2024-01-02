@@ -67,13 +67,14 @@ a:hover {
 }
 
 a.active {
-  color: #cc2e2e; /* #125699;*/
+  color: #125699;
   font-weight: bold;
-  background-color: yellow;
+  background-color: white;
   text-decoration: none;
   border-radius: 16px;
+
 }
-.toolbar .navbar-collapse .navbar-nav .menu-item a {
+.toolbar .navbar-collapses .navbar-naves .menu-item a {
   padding: 0.3rem 1rem;
   font-size: 22px;
   font-weight: 300;
@@ -81,13 +82,13 @@ a.active {
 .toolbar{
   padding: 0.3rem 2.5rem;
 }
-.navbar-nav {
+.navbar-naves {
   display: flex;
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
 }
-.last-item-style {
+/* .last-item-style {
   background-color: white;
   padding: 6px 0px 4px;
     margin-top: -8px;
@@ -100,7 +101,7 @@ a.active {
   background-color: #125699;
   color: #fff;
   border-radius: 16px;
-}
+} */
 #btn-contact{
   width: auto;
     border-radius: 20px;
@@ -121,8 +122,8 @@ a.active {
 /* Responsive Styles */
 
 @media screen and (max-width: 1307px) {
-  .navbar-nav .static{
-    display: none;
+  .navbar-naves .static{
+    /* display: none; */
   }
 }
 
@@ -133,8 +134,8 @@ a.active {
 }
 
 @media screen and (max-width: 835px) {
-  .navbar-nav{
-    display: none;
+  .navbar-naves{
+    /* display: none; */
   }
 
 }

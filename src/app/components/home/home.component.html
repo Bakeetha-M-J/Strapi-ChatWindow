@@ -44,6 +44,30 @@
         <!-- {{cardContents | json}} -->
     </ng-container>
 
+
+    <!-- reviews -->
+    <!-- <ng-container>
+      <div class="container">
+        <div class="sliders">
+          <ng-container *ngFor="let card of reviewCardContents; let i = index">
+            <div class="slider" *ngIf="current == i" @fade>
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>{{card.name}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <img mat-card-image class="card-img" [src]="card.img" alt="Photos" />
+                  <p>
+                    {{card.review}}
+                  </p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container> -->
+
   </div>
 
   <!-- {{homePageContents.attributes.Contents[0].Contents | json}} -->
@@ -90,7 +114,111 @@
     </ng-container>
 
 
+     <!-- reviews -->
+     <!-- <ng-container>
+      <div class="container">
+        <div class="sliders">
+          <ng-container *ngFor="let card of reviewCardContents; let i = index">
+            <div class="slider" *ngIf="current == i" @fade>
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>{{card.name}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <img mat-card-image class="card-img" [src]="card.img" alt="Photos" />
+                  <p>
+                    {{card.review}}
+                  </p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container> -->
+
   </div>
+
+
+
+
+  <div class="container-fluid">
+    <ngb-carousel>
+      <ng-template ngbSlide *ngFor="let image of images">
+        <!-- <div class="card"> -->
+          <div class="carousel-image">
+            <img [src]="image.src" alt="{{ image.title }}">
+            <div class="carousel-caption">
+              <h3>{{ image.title }}</h3>
+              <p>{{ image.short }}</p>
+            </div>
+          </div>
+        <!-- </div> -->
+      </ng-template>
+    </ngb-carousel>
+  </div>
+
+
+
+
+
+
+  <!-- <div class="container-fluid"> -->
+    <div class="row">
+      <div class="col">
+        <div class="card-deck-carousel" #cardDeck>
+          <span class="carousel-control" (click)="slide(-1)">
+            <i class="fa-solid fa-chevron-left"></i>
+            Pre
+          </span>
+          <div class="card" *ngFor="let item of displayedItems">
+            <img [src]="item.imageUrl" class="card-img-review" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.title }}</h5>
+              <p class="card-text">{{ item.description }}</p>
+            </div>
+          </div>
+          <span class="carousel-control" (click)="slide(1)">
+            Next
+            <i class="fa-solid fa-chevron-right"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+
+
+  <!-- <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="carousel-container">
+        <div class="card-deck" #cardDeck >
+          <div class="card" *ngFor="let item of displayedItems">
+            <img [src]="item.imageUrl" class="card-img-review" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.title }}</h5>
+              <p class="card-text">{{ item.description }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <span class="carousel-control" (click)="slide(-1)">
+            <i class="fa-solid fa-chevron-left"></i>
+            Pre
+          </span>
+          <span class="carousel-control" (click)="slide(1)">
+            Next
+            <i class="fa-solid fa-chevron-right"></i>
+          </span>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+<!-- <app-testimonials></app-testimonials> -->
 
 
 
