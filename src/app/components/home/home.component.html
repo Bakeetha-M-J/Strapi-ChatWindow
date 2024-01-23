@@ -1,8 +1,26 @@
-<div class="content" role="main">
-  <div>
-    <app-breadcrumb></app-breadcrumb>
-  </div>
 
+<header>
+  <app-header></app-header>
+</header>
+
+
+
+<div class="content" role="main">
+  <!-- <div>
+    <app-breadcrumb></app-breadcrumb>
+  </div> -->
+  <ng-container *ngIf="bannerContent">
+  <div class="row">
+    <div class="container">
+      <img *ngIf="bannerContent.Image.data.attributes.url" [src]="baseURL+bannerContent.Image.data.attributes.url" alt="image" class="banner-image" style="width:100%;">
+        <div class="content">
+          <h1 class="top-content" *ngIf="bannerContent.Title">{{bannerContent.Title}}</h1>
+          <p class="top-content" *ngIf="bannerContent.Description">{{bannerContent.Description}} </p>
+        </div>
+
+    </div>
+  </div>
+</ng-container>
 
   <div *ngIf="flag == true">
     <!-- {{homePageContents.attributes.Contents[0].Contents | json}} -->
@@ -141,11 +159,10 @@
 
 
 
-
+ <div class="row">
   <div class="container-fluid">
     <ngb-carousel>
       <ng-template ngbSlide *ngFor="let image of images">
-        <!-- <div class="card"> -->
           <div class="carousel-image">
             <img [src]="image.src" alt="{{ image.title }}">
             <div class="carousel-caption">
@@ -153,39 +170,103 @@
               <p>{{ image.short }}</p>
             </div>
           </div>
-        <!-- </div> -->
       </ng-template>
     </ngb-carousel>
   </div>
+ </div>
 
 
 
 
 
 
-  <!-- <div class="container-fluid"> -->
     <div class="row">
       <div class="col">
-        <div class="card-deck-carousel" #cardDeck>
+        <div class="card-deck-carousel" #cardDeck >
           <span class="carousel-control" (click)="slide(-1)">
-            <i class="fa-solid fa-chevron-left"></i>
-            Pre
+            <span class="material-icons"> arrow_back_ios </span>
           </span>
-          <div class="card" *ngFor="let item of displayedItems">
-            <img [src]="item.imageUrl" class="card-img-review" alt="...">
+          <div class="card" *ngFor="let item of displayedItems; let i = index;" >
+            <div class="card-header">
+              <img [src]="item.imageUrl" class="card-img-review" alt="...">
+            </div>
             <div class="card-body">
               <h5 class="card-title">{{ item.title }}</h5>
+              <star-rating [starType]="'svg'" [rating]="item.rating"></star-rating>
               <p class="card-text">{{ item.description }}</p>
             </div>
           </div>
           <span class="carousel-control" (click)="slide(1)">
-            Next
-            <i class="fa-solid fa-chevron-right"></i>
+            <span class="material-icons"> arrow_forward_ios </span>
           </span>
         </div>
       </div>
     </div>
-  <!-- </div> -->
+
+
+
+
+
+<!-- <app-testimonials></app-testimonials> -->
+
+
+
+</div>
+
+
+<app-chat-window></app-chat-window>
+
+
+
+<footer>
+  <app-footer></app-footer>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   <!-- <div class="container-fluid">
@@ -215,11 +296,3 @@
       </div>
     </div>
   </div> -->
-
-
-
-<!-- <app-testimonials></app-testimonials> -->
-
-
-
-</div>

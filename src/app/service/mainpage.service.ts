@@ -50,9 +50,10 @@ export class MainpageService {
 
   getTopBanner(pageId: any): Observable<any> {
     //   /api/pages?populate=Banner.Image
+    // console.log('service getTopBanner pageId ',pageId);
     return this.http.get(`${environment.strapiUrl}/api/pages/${pageId}/?populate=Contents.Contents.Image&populate=Banner.Image&populate=Contents.Cards.IconImage`).pipe(
       map((res: any) => {
-        console.log('service - getTopBanner: ', res.data);
+        // console.log('service - getTopBanner: ', res.data);
         // `${environment.strapiUrl}`+res.data[0].attributes.Banner.Image.data.attributes.url
         return res.data;
       }),

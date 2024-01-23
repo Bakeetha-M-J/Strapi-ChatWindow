@@ -20,12 +20,12 @@ p, li{
   font-weight: 400;
 }
 .content {
-  display: flex;
+  /* display: flex;
   margin: 170px auto 32px;
   padding: 0 16px;
+  display: block; */
   /* max-width: 960px; */
   /* flex-direction: row; */
-  display: block;
   /* align-items: center; */
 }
 
@@ -45,9 +45,9 @@ p, li{
 }
 
 /* Clear floats after the columns */
-.row{
+/* .row{
   border-bottom: 2px solid #9a9a9a;
-}
+} */
 .row:last-child{
   border-bottom: none;
 }
@@ -113,8 +113,58 @@ img.image-right{
   margin-right: 10%;
     text-align: center;
 }
+/* banner image starts*/
+.top-content{
+  width: 50%;
+    position: relative;
+    top: 50%;
+}
+.container {
+  position: relative;
+  /* max-width: 800px; */
+  margin: 0 auto;
+  /* background-color: rgb(0, 0, 0);
+  opacity: 0.5; */
+  /* background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);  */
+}
 
+.container img {vertical-align: middle;}
 
+.container .content {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  color: #f1f1f1;
+  /* width: 50%; */
+  padding: 20px;
+  /* top: 25%; */
+  /* left: 16px; */
+
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+  clip-path: circle(80% at 53% 33%);
+  /* clip-path: circle(100% at 23% 31%); */
+  /* clip-path: polygon(100% 0%, 0% 0%, 0% 85%, 22% 93%, 29% 95%, 57% 99%, 69% 99%, 76% 98%, 100% 80%); */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 30%;
+
+  width: 98.4%;
+    margin: auto;
+}
+
+img.banner-image{
+  clip-path: circle(80% at 53% 33%);
+  /* clip-path: circle(100% at 23% 31%); */
+  /* clip-path: polygon(100% 0%, 0% 0%, 0% 85%, 22% 93%, 29% 95%, 57% 99%, 69% 99%, 76% 98%, 100% 80%); */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 30%;
+}
+/* banner image ends */
 /* Review cards */
 
 .container {
@@ -241,12 +291,21 @@ ngb-carousel {
   display: none; /* Hide scrollbar in Webkit browsers */
 }
 
+
 .card {
   flex: 0 0 auto;
-  width: 14rem; /* Adjust card width as needed */
-  margin-right: 10px; /* Adjust card margin as needed */
+  height: 20rem;
+  width: 14rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 0.75rem;
+  overflow-y: auto;
+  align-items: center;
 }
-
+.card-header{
+  background-color: #fff;
+}
 /* .carousel-controls {
   position: absolute;
   top: 50%;
@@ -314,12 +373,13 @@ ngb-carousel {
 
 
 .card-img-review{
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   position: relative;
-  left: 15%;
-  top: 5%;
+  /* left: 15%;
+  top: 5%; */
+  margin: 5% auto;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */

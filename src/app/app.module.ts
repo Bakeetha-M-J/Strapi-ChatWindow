@@ -20,6 +20,12 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
+
+// IMPORT STAR RATING MODULE
+import { StarRatingModule } from 'angular-star-rating';
+import { ChatWindowComponent } from './components/chat-window/chat-window.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewWindowComponent } from './components/chat-window/new-window/new-window.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,17 +37,22 @@ import { TestimonialsComponent } from './components/testimonials/testimonials.co
     LearnMoreComponent,
     HomeComponent,
     FooterComponent,
-    TestimonialsComponent
+    TestimonialsComponent,
+    ChatWindowComponent,
+    NewWindowComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     FontAwesomeModule,
     MatGridListModule,
     MatCardModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule,
+    StarRatingModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

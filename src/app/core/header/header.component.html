@@ -1,45 +1,55 @@
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <a><img alt="Trinity Logo" routerLink="/" src="./assets/logo/Trinity_Logo_White_SVG-250x70.png"/></a>
-<!--
-[src]={{logo}}  -->
-
-
+<div class="toolbar" role="banner" [ngClass]="{'show-background': isScrolled}">
+  <a><img alt="Trinity Logo" routerLink="/" src="./assets/logo/Trinity_Logo_White_SVG-250x70.png" /></a>
   <div class="collapse navbar-collapses" id="navbarSupportedContent">
-    <ul id="menu-web-menu" class="navbar-naves ml-auto"  >
-
-      <!-- <span *ngFor="let page of pages">
-        <li id="menu-item" class="menu-item "><a href="#">{{page.attributes.title}}</a></li>
-      </span> -->
-      <!-- <span *ngFor="let page of pages">
-        <li id="menu-item" class="menu-item "><a href="#" [routerLink]="page.roofing">{{page.LinkName}}</a></li>
-      </span> -->
-      <!-- routerLink="/hello/1" -->
+    <ul id="menu-web-menu" class="navbar-naves ml-auto">
       <span *ngFor="let page of pages; let last = last">
-        <!-- {{page.attributes | json}} -->
-        <!-- {{page.id}} -->
         <li id="menu-item" class="menu-item" [ngClass]="{ 'last-item-style': last }">
-          <a href="#" [routerLink]="page.id" routerLinkActive="active"
-
-          >{{page.attributes.page?.data?.attributes.title}}</a>
+          <a href="#" [routerLink]="page.id" routerLinkActive="active" (click)="passPageId(page.attributes.page.data.id)">
+            {{page.attributes.page?.data?.attributes.title}}</a>
         </li>
       </span>
+    </ul>
+  </div>
+</div>
 
-      <!-- <li id="menu-item-solar" class="menu-item "><a href="#">Solar</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <li id="menu-item-solar" class="menu-item "><a href="#">Solar</a></li>
       <li id="menu-item-roofing" class="menu-item "><a href="#">Roofing</a></li>
       <li id="menu-item-batteries" class="menu-item static"><a href="#">Batteries</a></li>
       <li id="menu-item-why-trinity" class="menu-item "><a href="#">Why Trinity</a></li>
       <li id="menu-item-community-partners" class="menu-item static"><a href="#">Community Partners</a></li>
       <li id="menu-item-careers" class="menu-item static"><a href="#">Careers</a></li> -->
-      <!-- <li id="menu-item-contact-us" class="menu-item "><a href="#">Contact Us</a></li> -->
-    </ul>
+<!-- <li id="menu-item-contact-us" class="menu-item "><a href="#">Contact Us</a></li> -->
 
-  </div>
-
-
-
-  <!-- <div class="spacer"></div>
+<!-- <div class="spacer"></div>
     <button class="menu-item " id="btn-contact" >
       Contact Us
     </button> -->
-</div>

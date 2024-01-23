@@ -30,16 +30,25 @@ p {
   height: 150px;
   display: flex;
   align-items: center;
-  background-image: url(src/assets/images/header.jpg);
+  /* background-image: url(src/assets/images/header.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   width: auto;
   filter: contrast(100%) brightness(110%) opacity(98%);
   /* filter: sepia(5%); */
   mask-mode: luminance;
-  background-color: #408bc0;
+  /* background-color: #408bc0; */
   color: white;
   font-weight: 600;
+  z-index: 999;
+  position: fixed;
+}
+.toolbar.show-background {
+  background-color: #408bc0;
+  /* background-image: url(src/assets/images/header.jpg); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Add other background-related styles if needed */
 }
 
 .toolbar img {

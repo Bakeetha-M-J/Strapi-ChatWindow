@@ -1,0 +1,41 @@
+<div class="chatbox container" id="chatbox">
+ <div class="fixed-top">
+  <div class="container-header">
+    <button class="arrow-up-right" (click)="openWindow($event)"> <i
+        class="fa-solid fa-arrow-up-right-from-square fa-rotate-90"></i></button>
+    <h4><i class="fas fa-comments"></i> <span>Live Chat</span></h4>
+    <button class="arrow-up-right" (click)="closeChat()"> <i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="container-subheader">
+    <div id="agent-icon"><i class="fa-solid fa-ellipsis"></i></div>
+    <div class="user-name-time" data-radium="true">
+      <h3 id="chatUser" class="chat-user chat-user-regular" title="System Message">System Message</h3>
+      <p id="chatUserStatus" class="chat-user-status chat-user-status-regular" title="Waiting for Agent...">Waiting for
+        Agent...</p>
+    </div>
+ </div>
+  </div>
+
+  <div class="container-body">
+    <div class="chat-time">
+      <h3>Chat Started</h3>
+      <p id="demo"><i class="fa-regular fa-clock"></i> {{time | date: 'hh:mm a'}}</p>
+    </div>
+    <ng-container *ngFor="let message of messages">
+      <div class="chat-block" [ngClass]="{ 'from-msg': message.author === 'bot',
+      'to-msg': message.author === 'user' }">
+        <div id="chat-icon" *ngIf="message.author === 'bot'"><i class="fa-solid fa-ellipsis"></i></div>
+        <div class="message" [ngClass]="{ 'from': message.author === 'bot',
+    'to': message.author === 'user' }">
+          <div class="message-content"> {{ message.content }} </div>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+  <div class="input-container">
+    <input id="inputChat" [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text" placeholder="type here">
+    <button class="sendbutton" (click)="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+  </div>
+
+</div>
