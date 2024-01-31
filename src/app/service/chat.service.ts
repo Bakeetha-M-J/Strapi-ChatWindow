@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 export class Message {
   constructor(public author: string, public content: string) {}
@@ -14,12 +14,20 @@ export class ChatService {
   messages$ = this.allmessages.asObservable();
 
   public allmessages$ = this.allmessages.asObservable();
+
+
+  private sharedData: Subject<any> = new Subject<any>();
+  sharedData$: Observable<any> = this.sharedData.asObservable();
+
+
   constructor() { }
   conversation = new Subject<Message[]>();
 
   messageMap:any = {
     "Hi": "Hello",
+    "hi": "Hello",
     "Site": "Trinity Solar site",
+    "site": "Trinity Solar site",
     "default": "I can't understand. Can you please repeat"
   }
 
@@ -39,11 +47,33 @@ export class ChatService {
     return answer || this.messageMap['default'];
   }
 
+
+
   addMessage(message: any) {
     const currentMessages = this.allmessages.value;
     const newMessages = [...currentMessages, message];
     this.allmessages.next(newMessages);
     console.log('answer addMessage:', this.allmessages, this.allmessages$);
+
+  }
+  getaddMessage(){
+    console.log('get addMessage',this.allmessages);
     return this.allmessages;
   }
+
+  setAllMessages(allmessages: any) {
+    this.allmessages$ = allmessages;
+   }
+   getAllMessages() {
+    console.log('getAllMessages',this.allmessages$);
+    return this.allmessages$;
+   }
+
+   setData(updatedData: any) {
+    this.sharedData.next(updatedData);
+
+  }
+  // allMessages(): Observable<any>{
+  //   return this.allmessages$
+  // }
 }

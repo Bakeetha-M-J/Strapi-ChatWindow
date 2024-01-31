@@ -40,9 +40,13 @@
           <p id="commonErrorMessage">The following field are required</p>
           <ul aria-live="assertive">
             <li *ngIf="f['firstName'].errors?.['required']">First Name</li>
+            <li *ngIf="f['firstName'].errors?.['minlength']">First Name must have at least 3 character</li>
+            <li *ngIf="f['firstName'].errors?.['maxlength']">First Name must have at most 25 characters</li>
             <li *ngIf="f['lastName'].errors?.['required']">Last Name</li>
             <li *ngIf="f['email'].errors?.['required']">Email</li>
+            <li *ngIf="f['email'].errors?.['email']">Email must be a valid email address</li>
             <li *ngIf="f['mobileNumber'].errors?.['required']">Mobile Number</li>
+            <li *ngIf="f['mobileNumber'].errors?.['pattern']">Mobile Number must contain 10 digits</li>
             <li *ngIf="f['description'].errors?.['required']">Description</li>
             <li *ngIf="f['smsOption'].errors?.['required']">May we send SMS messages to this number?</li>
           </ul>
@@ -51,22 +55,13 @@
         <div class="form-group ">
           <label>First Name<span class="required-star">*</span></label>
           <input type="text" formControlName="firstName" class="form-control"
+
             [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
-          <!-- [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
-          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-            <div *ngIf="f.firstName.errors.required">
-              First Name is required
-            </div>
-          </div> -->
         </div>
         <div class="form-group ">
           <label>Last Name<span class="required-star">*</span></label>
           <input type="text" formControlName="lastName" class="form-control"
             [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }" />
-          <!--
-          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-          </div> -->
         </div>
       </div>
       <div class="form-group">
@@ -90,9 +85,6 @@
           <option value="no">No</option>
           <option value="yes">Yes</option>
         </select>
-        <!-- <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
-            <div *ngIf="f.title.errors.required">Title is required</div>
-        </div> -->
       </div>
 
       <div class="form-group">
@@ -102,7 +94,6 @@
 
       </div>
       <div class="text-center">
-        <!-- <button class="btn btn-primary mr-1">Register</button> -->
         <button id="btnSubmit" name="submit" type="submit" aria-label="submit" tabindex="0">SUBMIT</button>
       </div>
     </form>
@@ -112,9 +103,9 @@
   </div>
 </div>
 
-<div *ngIf="openchatFlag || showPortal" class="chatbox container" id="chatbox">
+<div *ngIf="openchatFlag" class="chatbox container" id="chatbox">
   <div class="container-header">
-    <button class="arrow-up-right" (click)="openWindow($event)"> <i
+    <button class="arrow-up-right" (click)="openWindow()"> <i
         class="fa-solid fa-arrow-up-right-from-square fa-flip-horizontal"></i></button>
     <h4><i class="fas fa-comments"></i> <span>Live Chat</span></h4>
     <button class="arrow-up-right" (click)="closeChat()"> <i class="fa-solid fa-xmark"></i></button>
@@ -128,11 +119,23 @@
     </div>
   </div>
 
+
+  <!-- <div>
+  <input [(ngModel)]="postmessage" placeholder="Enter Message" />
+  <button (click)="sendPostMessage()">Send Message To Child</button>
+  <h3>Messages Sent by the Child:</h3>
+  <div>{{  receivedMessage | json}}
+  <hr>
+  </div>
+</div> -->
+
+
   <div class="container-body">
     <div class="chat-time">
       <h3>Chat Started</h3>
       <p id="demo"><i class="fa-regular fa-clock"></i> {{time | date: 'hh:mm a'}}</p>
     </div>
+
     <ng-container *ngFor="let message of messages">
       <div class="chat-block" [ngClass]="{ 'from-msg': message.author === 'bot',
       'to-msg': message.author === 'user' }">
@@ -145,21 +148,20 @@
     </ng-container>
 
   </div>
+
+
+
   <div class="input-container">
     <!-- <textarea id="textType" class="type-input" placeholder="Type Something..." type="text" required="" tabindex="0"
       aria-label="Type Something..." cols="30" data-radium="true" style="font-family: Roboto;"></textarea> -->
     <input id="inputChat" [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text" placeholder="type here">
     <button class="sendbutton" (click)="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
   </div>
+
   <!-- <input [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text" placeholder="type here">
   <button (click)="sendMessage()">Send</button> -->
 
 </div>
-
-<!-- <window *ngIf="showPortal">
-  <h2>Hello world from amother window!!</h2>
-  <button (click)="this.showPortal = false">Close me!</button>
-</window> -->
 
 
 <div *ngIf="chatTimeOut" class="chatbox container">
@@ -175,9 +177,6 @@
     </div>
   </div>
 </div>
-
-
-
 <div *ngIf="showPortal" class="chatbox container session-other">
   <div class="container-header">
     <h4><i class="fa-regular fa-messages"></i><span>Live Chat</span></h4>
@@ -211,6 +210,7 @@
       </div>
       <div class="surf-bottom-content" data-radium="true">
         <a id="btnResume" aria-label="MOVE HERE" title="MOVE HERE" tabindex="0" data-radium="true"
+          (click)="chatMovetoParentWindow()"
           style="font-family: Roboto; background: rgb(46, 204, 113); color: rgb(255, 255, 255);">MOVE HERE</a>
 
       </div>
